@@ -1,0 +1,236 @@
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: rgb(214, 222, 224);
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--color-light--2);
+  background-color: #fff;
+  font-weight: 400;
+  line-height: 1.6;
+  height: 100vh;
+  padding: 2.5rem;
+  display: flex;
+  overscroll-behavior: none;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  flex-basis: 50rem;
+  background-color: var(--color-dark--1);
+  padding: 3rem 5rem 4rem 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar header {
+  height: 5.2rem;
+  margin-bottom: 4rem;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo {
+  height: 6rem;
+  display: inline;
+}
+
+header h1 {
+  color: var(--color-light--2);
+  font-size: 3rem;
+}
+
+.activities {
+  list-style: none;
+  height: 77vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar */
+.activities::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Form Styles */
+.form {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 1.5rem 2.75rem;
+  margin-bottom: 1.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2.5rem;
+  height: 12rem; /* Adjusted height to accommodate the button */
+  transition: all 0.5s, transform 1ms;
+}
+
+.form.hidden {
+  transform: translateY(-30rem);
+  height: 0;
+  padding: 0 2.25rem;
+  margin-bottom: 0;
+  opacity: 0;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+}
+
+.form-row-hidden {
+  display: none;
+}
+
+.form-label {
+  flex: 0 0 50%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.form-input,
+.form-input-activity {
+  width: 100%;
+  padding: 0.6rem 1.2rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-light--3);
+  transition: all 0.2s;
+}
+
+.form-input-activity {
+  appearance: none; /* Removes the default select arrow */
+  background: var(--color-light--3)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23424A4D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")
+    no-repeat right 1rem center;
+  padding-right: 2.5rem; /* Adjusts space for the arrow */
+}
+
+.form-input:focus,
+.form-input-activity:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+/* Button Styles */
+.form-button {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.form-button button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.4rem;
+  background-color: var(--color-brand--1);
+  color: var(--color-dark--1);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-button button:hover {
+  background-color: var(--color-brand--2);
+}
+
+/* Activity Styles */
+.activity {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 1.5rem 2.25rem;
+  margin-bottom: 1.75rem;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem 1.5rem;
+}
+
+.activity-fun {
+  border-left: 5px solid var(--color-brand--2);
+}
+
+.activity-food {
+  border-left: 5px solid var(--color-brand--1);
+}
+
+.activity-title {
+  font-size: 2 rem;
+  font-weight: 600;
+  grid-column: 1 / -1;
+}
+
+.activity-details {
+  display: flex;
+  align-items: baseline;
+}
+
+.activity-type {
+  font-size: 1.5rem;
+  margin-right: 5px;
+}
+
+.activity-icon {
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+  height: 0.28rem;
+}
+
+.activity-value {
+  font-size: 1.8rem;
+  margin-right: 0.7rem;
+}
+
+/* Map Styles */
+#map {
+  flex: 1;
+  height: 100%;
+  background-color: var(--color-light--1);
+}
+
+/* Leaflet Popup Styles */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.5rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-dark--1);
+}
+
+.fun-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--2);
+}
+
+.food-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--1);
+}
